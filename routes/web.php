@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WarisanDataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route for fetching all items
+Route::get('/warisan_data', [WarisanDataController::class, 'index']);
+
+// Route for updating an item (submitting the update form)
+Route::put('/warisan_data/{id}', [WarisanDataController::class, 'update'])->name('warisan.update');
+
+
+
