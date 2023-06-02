@@ -1,0 +1,17 @@
+INSERT INTO `warisan_data` (`id`, `kategori`, `nama`, `desc`, `date`, `gambar`) VALUES
+(1, 'weapons and arms', 'Keris Warisan Melayu', 'Senjata tradisional warisan melayu nusantara.', 'tidak ternilai', 'keris.jpg'),
+(2, 'weapons and arms', 'tombak dan lembing', 'tombak dan lembing warisan nusantara', '1400 Hijrah', 'tombak.jpg'),
+(5, 'weapons and arms', 'Kerambit', 'eni kraftangan yang telah lama wujud di kalangan masyarakat Malaysia.', '1240 Hijrah', 'kerambit.jpg'),
+(6, 'household items', 'congkak', 'congkak permainan tradisional', '1440 Hijrah', 'congkak.png'),
+(7, 'household items', 'tepak sirih', 'bagai pinang dibelah dua - peribahasa melayu', '1300 Hijrah1400 Hijrah', 'tepakSirih.jpg'),
+(8, 'textiles', 'songket tenun asli', 'lorem ipsum.', '1444 Hijrah', 'songket.jpg'),
+(9, 'textiles', 'Batik canting', 'batik canting lukisan tangan asli.', '1444 Hijrah', 'batikCanting.jpg'),
+(10, 'carving and woodworks', 'tunjuk langit', 'dipasang di bumbung rumah tradisional, menyimpan falsafah tersirat disebaliknya', '1330 Hijrah', 'tunjukLangit.jpg'),
+(11, 'carving and woodworks', 'ukiran kayu', 'ukiran tangan, material kayu cengal merah', '24000', 'ukiranKayu.jpg'),
+(12, 'carving and woodworks', 'to be completed', 'kosong', 'none', 'none.jpg'),
+(13, 'carving and woodworks', 'Ukiran Iban', 'Ukiran oleh kaum Iban di Sarawak', 'later', 'ukiranIban.jpg'),
+(14, 'Category1', 'test123', 'Description1', '20230525', 'image1.jpg'),
+(15, 'Category1', 'test123', 'Description1', '20230525', 'image1.jpg'),
+(16, 'Category1', 'test123', 'Description1', '20230525', 'image1.jpg'),
+(17, 'Category1', 'test123', 'Description1', '20230525', 'image1.jpg'),
+(18, 'Category1', 'test123', 'Description1', '20230525', 'image1.jpg');
