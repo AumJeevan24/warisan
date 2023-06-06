@@ -107,7 +107,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 <div class="container">
   <a class="navbar-brand" href="#"><img class="logo" src="{{ asset('images/logo.jpg') }}"></a>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+  {{-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
           <a class="nav-item nav-link active" href="#" id="all-collections-link">all collections</a>
           <a class="nav-item nav-link" href="#" id="weapons-and-arms-link">weapons and arms</a>
@@ -115,30 +115,10 @@
           <a class="nav-item nav-link" href="#" id="textiles-link">textiles</a>
           <a class="nav-item nav-link" href="#" id="carving-and-woodworks-link">carving and woodworks</a>
       </div>
-  </div>
+  </div> --}}
 </div>
 </nav>
-<div id="card-content" class="container">
-<div class="row" id="cards-row">
-  @foreach($warisanData as $item)
-  <div class="col-md-4" data-category="{{ $item->kategori }}">
-      <div class="card">
-          <img class="card-img-top" src="{{ asset('images/'.$item->gambar) }}">
-          <div class="card-body">
-              <h5 class="card-title">Category: {{ $item->kategori }}</h5>
-              <h5 class="card-title">Name: {{ $item->nama }}</h5>
-              <h5 class="card-title">Description: {{ $item->desc }}</h5>
-              <h5 class="card-title">Date: {{ $item->date }}</h5>
-              <form action="{{ route('warisan.edit', $item->id) }}" method="GET">
-                  @csrf
-                  <button type="submit" class="btn btn-primary">Update</button>
-              </form>
-          </div>
-      </div>
-  </div>
-  @endforeach
-</div>
-</div>
+@yield('content')
 
 <script src="https://code.jquery.com/jquery-3.6.4.js"
   integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
@@ -162,3 +142,5 @@ $(document).ready(function () {
   });
 });
 </script>
+</body>
+</html>

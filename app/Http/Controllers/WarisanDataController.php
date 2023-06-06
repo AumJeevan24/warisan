@@ -19,6 +19,23 @@ class WarisanDataController extends Controller
     }
 
     /**
+     * Show the form for updating the specified item.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $warisanData = WarisanData::find($id);
+
+        if (!$warisanData) {
+            return response()->json(['message' => 'Item not found'], 404);
+        }
+
+        return view('warisan.edit', ['warisanData' => $warisanData]);
+    }
+
+    /**
      * Update the specified item in the database.
      *
      * @param  int  $id
@@ -33,12 +50,19 @@ class WarisanDataController extends Controller
             return response()->json(['message' => 'Item not found'], 404);
         }
 
-        $warisanData->kategori = $request->input('kategori');
-        $warisanData->nama = $request->input('nama');
-        $warisanData->desc = $request->input('desc');
-        $warisanData->date = $request->input('date');
+        $validatedData = $request->validate([
+            'kategori' => 'required',
+            'nama' => 'required',
+            'desc' => 'required',
+            'date' => 'required|date',
+            'gambar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
-        // Handle file upload if needed
+        $warisanData->kategori = $validatedData['kategori'];
+        $warisanData->nama = $validatedData['nama'];
+        $warisanData->desc = $validatedData['desc'];
+        $warisanData->date = $validatedData['date'];
+
         if ($request->hasFile('gambar')) {
             $gambar = $request->file('gambar');
             $filename = $gambar->getClientOriginalName();

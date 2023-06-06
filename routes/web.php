@@ -21,8 +21,8 @@ Route::get('/', function () {
 // Route for fetching all items
 Route::get('/warisan_data', [WarisanDataController::class, 'index']);
 
+// Route for displaying the update form
+Route::get('/warisan_data/{id}/edit', [WarisanDataController::class, 'edit'])->name('warisan.edit');
+
 // Route for updating an item (submitting the update form)
 Route::put('/warisan_data/{id}', [WarisanDataController::class, 'update'])->name('warisan.update');
-
-
-
