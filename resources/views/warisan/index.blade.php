@@ -3,6 +3,11 @@
 <head>
     <title>Warisan Tradisional Bumi Nusantara</title>
     <style>
+
+        /* .body{
+            background-color: blue;
+        } */
+
         .logo {
             width: 100px;
             height: 100px;
@@ -18,9 +23,14 @@
             background-color: #f8f9fa;
         }
 
+        .card:hover{
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+        }
+
         .card-title {
-            font-size: 18px;
-            text-align: center;
+            /* font-size: 18px; */
+            /* text-align: center; */
         }
 
         .card-img-top {
@@ -103,7 +113,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
-<body>
+<body class="bg-light">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 <div class="container">
   <a class="navbar-brand" href="#"><img class="logo" src="{{ asset('images/logo.jpg') }}"></a>
@@ -118,23 +128,25 @@
   </div>
 </div>
 </nav>
-<div id="card-content" class="container">
+<div id="card-columns" class="container">
 <div class="row" id="cards-row">
   @foreach($warisanData as $item)
   <div class="col-md-4" data-category="{{ $item->kategori }}">
-      <div class="card">
+    <div class="card-deck">
+      <div class="card shadow p-3 mb-3 bg-white border-light rounded" style="width: 20rem;">
           <img class="card-img-top" src="{{ asset('images/'.$item->gambar) }}">
           <div class="card-body">
-              <h5 class="card-title">Category: {{ $item->kategori }}</h5>
-              <h5 class="card-title">Name: {{ $item->nama }}</h5>
-              <h5 class="card-title">Description: {{ $item->desc }}</h5>
-              <h5 class="card-title">Date: {{ $item->date }}</h5>
-              <form action="{{ route('warisan.edit', $item->id) }}" method="GET">
+              <h5 class="card-title">{{ $item->nama }}</h5>
+              <p class="card-text">{{ $item->desc }}</p>
+              <!-- <p class="card-text">Date: {{ $item->date }}</p> -->
+              <p class="card-text"><small class="text-muted">{{ $item->kategori }}</small></p>
+              <!-- <form action="{{ route('warisan.edit', $item->id) }}" method="GET">
                   @csrf
-                  <button type="submit" class="btn btn-primary">Update</button>
-              </form>
+                  <button type="submit" class="btn btn-warning text-dark">Update</button>
+              </form> -->
           </div>
       </div>
+    </div>
   </div>
   @endforeach
 </div>
