@@ -14,15 +14,25 @@ use App\Http\Controllers\WarisanDataController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+// Route::get('/', [WarisanDataController::class, 'welcome']);
 
 // Route for fetching all items
-Route::get('/warisan_data', [WarisanDataController::class, 'index']);
+Route::get('/', [WarisanDataController::class, 'index']);
 
 // Route for displaying the update form
-Route::get('/warisan_data/{id}/edit', [WarisanDataController::class, 'edit'])->name('warisan.edit');
+Route::get('/{id}/edit', [WarisanDataController::class, 'edit'])->name('warisan.edit');
+
+// Route for displaying the detailed description
+Route::get('/{id}/view', [WarisanDataController::class, 'view'])->name('warisan.view');
 
 // Route for updating an item (submitting the update form)
-Route::put('/warisan_data/{id}', [WarisanDataController::class, 'update'])->name('warisan.update');
+Route::put('/id}', [WarisanDataController::class, 'update'])->name('warisan.update');
+
+// Route to delete item
+Route::get('/{id}/delete',  [WarisanDataController::class, 'delete'])->name('warisan.delete');
+
+// Route to create item
+Route::get('/create',  [WarisanDataController::class, 'create'])->name('warisan.create');
