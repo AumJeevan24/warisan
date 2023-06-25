@@ -168,16 +168,18 @@
         </div>
         @endforeach   
         <div class="col-md-3">
-        <div class="wsk-cp-product shadow p-3 mb-3 bg-white border-light rounded">
-            <div class="wsk-cp-img" id="addIcon" style="width: 30%; height: 30%; padding-top: 30%;">
-            <img src="/images/addIcon.png" class="img-responsive" />
+        <a href="{{ route('warisan.create') }}">
+            <div class="wsk-cp-product shadow p-3 mb-3 bg-white border-light rounded">
+                <div class="wsk-cp-img" id="addIcon" style="width: 30%; height: 30%; padding-top: 30%;">
+                <img src="/images/addIcon.png" class="img-responsive" />
+                </div>
+                <div class="wsk-cp-text" style="padding-top:60%; padding-bottom: 20%;">
+                <div class="description-prod">
+                    <p>Add New Item</p>
+                </div>
+                </div>
             </div>
-            <div class="wsk-cp-text" style="padding-top:60%; padding-bottom: 20%;">
-            <div class="description-prod">
-                <p>Add New Item</p>
-            </div>
-            </div>
-        </div>
+        </a>
         </div>
     </div>
     </div>
