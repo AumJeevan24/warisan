@@ -32,10 +32,8 @@ Route::get('/{id}/view', [WarisanDataController::class, 'view'])->name('warisan.
 // Route for updating an item (submitting the update form)
 Route::put('/{id}', [WarisanDataController::class, 'update'])->name('warisan.update');
 
-
 // Route to delete item
 Route::get('/{id}/delete', [WarisanDataController::class, 'delete'])->name('warisan.delete');
 
 // Route to create item
 Route::get('/create', [WarisanDataController::class, 'create'])->name('warisan.create');
-

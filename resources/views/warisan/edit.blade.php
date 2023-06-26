@@ -38,45 +38,14 @@
                         </div>
 
                         <!-- Hidden image input field -->
-
-                        <input type="hidden" name="gambar" value="{{ $warisanData->gambar }}">
-                  <button type="submit" class="btn">Update</button>
+                        <input type="hidden" name="id" value="{{ $warisanData->id }}">
+                        <button type="submit" class="btn">Update</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Submit form using AJAX
-            $('#updateForm').submit(function(event) {
-                event.preventDefault(); // Prevent the form from submitting normally
 
-                // Get the form data
-                var formData = new FormData(this);
-
-                // Send AJAX request
-                $.ajax({
-                    url: $(this).attr('action'),
-                    type: $(this).attr('method'),
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        // Handle the successful response
-                        console.log(response); // Log the response
-                        // Add your code to handle the response accordingly (e.g., show success message)
-                    },
-                    error: function(xhr, status, error) {
-                        // Handle the error response
-                        console.log(xhr.responseText); // Log the error response
-                        // Add your code to handle the error accordingly (e.g., show error message)
-                    }
-                });
-            });
-        });
-    </script>
     <style>
         .card {
             margin: 0 auto;
