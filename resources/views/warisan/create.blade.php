@@ -43,11 +43,11 @@
                         <div class="form-group">
                             <div class="date">
                                 <label for="date">Date:</label>
-                                <input type="date" name="date" value="" class="form-control">
+                                <input type="text" name="date" value="" class="form-control">
                             </div>
                             <div class="image">
-                                <label for="formFileSm" class="form-label">Image:</label><br>
-                                <input id="formFileSm" type="file"/>
+                                <label for="imageLink" class="form-label">Image Link:</label><br>
+                                <input id="imageLink" type="text" name="image_link" value="" class="form-control">
                             </div>
                         </div>
 
@@ -129,7 +129,7 @@
             margin-left: 50px;
         }
 
-        #formFileSm{
+        #imageLink{
             margin: 5px 0;
         }
 

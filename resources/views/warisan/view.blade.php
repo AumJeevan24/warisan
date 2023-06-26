@@ -5,7 +5,8 @@
         <div class="row">
             <div class="col-md-6" id="image">
                 <div class="image-container">
-                <img src="{{ asset('images/'.$warisanData->gambar) }}" alt="Item Image">
+                    <img src="{{ $warisanData->gambar }}" alt="Item Image">
+
 
                 </div>
             </div>

@@ -150,7 +150,7 @@
             <a href="{{ route('warisan.view', $item->id) }}">
                 <div class="wsk-cp-product shadow p-3 mb-3 bg-white border-light rounded">
                     <div class="wsk-cp-img">
-                        <img src="{{ asset('images/'.$item->gambar) }}" alt="{{ $item->nama }}" class="img-responsive" />
+                        <img src="{{$item->gambar }}" alt="{{ $item->nama }}" class="img-responsive" />
                     </div>
                     <div class="wsk-cp-text">
                         <div class="title-product">
