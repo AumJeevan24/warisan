@@ -15,6 +15,13 @@
                 <div class="card-body">
                     <div class="title">Create A New Item</div>
                     <div class="detail">Please provide the required details for the new item to ensure accurate documentation and representation. Thank you for your cooperation.</div>
+                    @if(session('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('success') }}
+                    </div>
+                    @endif
+                    <form action="{{ route('warisan.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="form-group">
                             <div class="kategori">
                                 <label for="kategori">Category:</label>
@@ -47,6 +54,7 @@
                         <!-- Hidden image input field -->
 
                         <button type="submit" class="btn">Create</button>
+                    </form>
                 </div>
             <!-- </div> -->
         </div>
