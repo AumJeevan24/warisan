@@ -135,7 +135,7 @@
 
 @if(session('success'))
     <script>
-        alert("Item deleted successfully");
+        alert("{{ session('success') }}");
     </script>
 @endif
 
