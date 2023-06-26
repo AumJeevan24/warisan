@@ -38,14 +38,8 @@
                         </div>
 
                         <!-- Hidden image input field -->
-<<<<<<< Updated upstream
-                        <input type="hidden" name="gambar" value="{{ $warisanData->gambar }}">
-
-                        <button type="submit" class="btn btn-primary">Update</button>
-=======
                         <input type="hidden" name="id" value="{{ $warisanData->id }}">
                         <button type="submit" class="btn">Update</button>
->>>>>>> Stashed changes
                     </form>
                 </div>
             </div>

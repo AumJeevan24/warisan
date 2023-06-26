@@ -25,9 +25,6 @@ Route::get('/warisan_data', [WarisanDataController::class, 'index']);
 Route::get('/warisan_data/{id}/edit', [WarisanDataController::class, 'edit'])->name('warisan.edit');
 
 // Route for updating an item (submitting the update form)
-<<<<<<< Updated upstream
-Route::put('/warisan_data/{id}', [WarisanDataController::class, 'update'])->name('warisan.update');
-=======
 Route::put('/{id}', [WarisanDataController::class, 'update'])->name('warisan.update');
 
 
@@ -37,4 +34,3 @@ Route::get('/{id}/delete',  [WarisanDataController::class, 'delete'])->name('war
 
 // Route to create item
 Route::get('/create',  [WarisanDataController::class, 'create'])->name('warisan.create');
->>>>>>> Stashed changes
