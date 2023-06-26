@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="image-container">
-                    <img src="{{ $warisanData->gambar }}" alt="Item Image">
+                    <img src="{{ asset('images/'.$warisanData->gambar) }}" alt="Item Image">
                 </div>
             </div>
             <div class="col-md-6">
@@ -34,12 +34,11 @@
 
                         <div class="form-group">
                             <label for="date">Date:</label>
-                            <input type="date" name="date" value="{{ $warisanData->date }}" class="form-control">
+                            <input type="text" name="date" value="{{ $warisanData->date }}" class="form-control">
                         </div>
 
                         <!-- Hidden image input field -->
-                        <input type="hidden" name="gambar" value="{{ $warisanData->gambar }}">
-
+                        <input type="hidden" name="id" value="{{ $warisanData->id }}">
                         <button type="submit" class="btn">Update</button>
                     </form>
                 </div>
