@@ -18,6 +18,34 @@ class WarisanDataController extends Controller
         return view('warisan.index', ['warisanData' => $warisanData]);
     }
 
+        /**
+     * Get all items from the database.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function welcome()
+    {
+        $warisanData = WarisanData::all();
+        return view('welcome', ['warisanData' => $warisanData]);
+    }
+
+    /**
+     * display detail.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function view($id)
+    {
+        $warisanData = WarisanData::find($id);
+
+        if (!$warisanData) {
+            return response()->json(['message' => 'Item not found'], 404);
+        }
+
+        return view('warisan.view', ['warisanData' => $warisanData]);
+    }
+
     /**
      * Show the form for updating the specified item.
      *
@@ -72,6 +100,30 @@ class WarisanDataController extends Controller
 
         $warisanData->save();
 
-        return redirect('/warisan_data')->with('success', 'Item updated successfully');
+        return redirect('/')->with('success', 'Item updated successfully');
     }
+
+    /**
+     * Delete the specified item from the database.
+     *
+     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function delete($id){
+        $warisanData = WarisanData::find($id);
+
+        if(!$warisanData){
+            return response()->json(['message' => 'Item not found'], 404);
+        }
+
+        $warisanData->delete();
+        
+        return redirect('/')->with('success', 'Item deleted successfully');
+    }
+
+    public function create(){
+        return view('warisan.create');
+    }
+
 }

@@ -3,121 +3,75 @@
 <head>
     <title>Warisan Tradisional Bumi Nusantara</title>
     <style>
-        .logo {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-        }
+    @import url('https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i');
+    
+    body{
+        font-family: 'Muli', sans-serif;
+        background:#ddd;
+    }
+    .shell{
+        padding:20px 0;
+        background-color: #EBEBEB;
+    }
 
-        .card {
-            border: 1px solid black;
-            margin: 20px;
-            width: 240px;
-            height: 550px;
-            padding: 10px;
-            background-color: #f8f9fa;
-        }
+    .navbar {
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
 
-        .card-title {
-            font-size: 18px;
-            text-align: center;
-        }
+    .navbar-brand {
+        padding: 0px;
+        margin-left: 60px;
+        margin-right: 10px;
+    }
 
-        .card-img-top {
-            height: 150px;
-            object-fit: cover;
-        }
+    .navbar-brand img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%
+    }
 
-        #cards-row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+    .navbar-nav .nav-link {
+        margin-left: 50px;
+        color: black;
+    }
 
-        .hide-button {
-            display: block;
-            margin: auto;
-            margin-top: 10px;
-        }
+    .navbar-nav .nav-link.active {
+        font-weight: bold;
+    }
 
-        .delete-button {
-            display: block;
-            margin: auto;
-            margin-top: 10px;
-        }
-
-        #card-content {
-            margin-top: 50px;
-        }
-
-        .navbar {
-            margin-bottom: 30px;
-        }
-
-        .navbar-brand {
-            padding: 0px;
-            margin-right: 10px;
-        }
-
-        .navbar-brand img {
-            height: 100%;
-        }
-
-        .navbar-nav .nav-link {
-            color: white;
-        }
-
-        .navbar-nav .nav-link.active {
-            font-weight: bold;
-        }
-
-        .card-body {
-            height: auto;
-            overflow: auto;
-        }
-
-        .card-body::-webkit-scrollbar {
-            width: 5px;
-        }
-
-        .card-body::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        .card-body::-webkit-scrollbar-thumb {
-            background-color: #888;
-            border-radius: 5px;
-        }
-
-        @media screen and (max-width: 576px) {
-            .card {
-                width: 100%;
-            }
-        }
-
-        .update-form {
-            display: none;
-        }
-    </style>
+</style>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-<div class="container">
-  <a class="navbar-brand" href="#"><img class="logo" src="{{ asset('images/logo.jpg') }}"></a>
-  {{-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#" id="all-collections-link">all collections</a>
-          <a class="nav-item nav-link" href="#" id="weapons-and-arms-link">weapons and arms</a>
-          <a class="nav-item nav-link" href="#" id="household-items-link">household items</a>
-          <a class="nav-item nav-link" href="#" id="textiles-link">textiles</a>
-          <a class="nav-item nav-link" href="#" id="carving-and-woodworks-link">carving and woodworks</a>
-      </div>
-  </div> --}}
-</div>
-</nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img class="logo" src="{{ asset('images/logo.jpg') }}"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#" id="all-collections-link">all collections</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="weapons-and-arms-link">weapons and arms</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="household-items-link">household items</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="textiles-link">textiles</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="carving-and-woodworks-link">carving and woodworks</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="shell">
+
 @yield('content')
 
 <script src="https://code.jquery.com/jquery-3.6.4.js"
@@ -128,7 +82,7 @@ $(document).ready(function () {
       e.preventDefault();
       var category = $(this).text().trim().toLowerCase();
 
-      $("#card-content .col-md-4").each(function () {
+      $(".container .col-md-3").each(function () {
           if (category === "all collections" || $(this).attr("data-category").toLowerCase() === category) {
               $(this).show();
           } else {

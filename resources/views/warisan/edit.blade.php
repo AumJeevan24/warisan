@@ -38,8 +38,9 @@
                         </div>
 
                         <!-- Hidden image input field -->
-                        <input type="hidden" name="id" value="{{ $warisanData->id }}">
-                        <button type="submit" class="btn">Update</button>
+
+                        <input type="hidden" name="gambar" value="{{ $warisanData->gambar }}">
+                  <button type="submit" class="btn">Update</button>
                     </form>
                 </div>
             </div>
@@ -90,6 +91,7 @@
             font-size: 24px;
             font-weight: bold;
             padding: 20px;
+            background-color: #f8f9fa;
         }
 
         .card-body {
@@ -100,8 +102,15 @@
             margin-bottom: 20px;
         }
 
-        .btn-primary {
+        .btn{
             margin-top: 20px;
+            background-color: #1B1F27;
+            color: #EBEBEB;
+        }
+
+        .btn:hover{
+            background-color: black;
+            color: #EBEBEB;
         }
 
         .image-container {
