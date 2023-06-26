@@ -15,38 +15,44 @@
                 <div class="card-body">
                     <div class="title">Create A New Item</div>
                     <div class="detail">Please provide the required details for the new item to ensure accurate documentation and representation. Thank you for your cooperation.</div>
+                    @if(session('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('success') }}
+                    </div>
+                    @endif
+                    <form action="{{ route('warisan.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="form-group">
                             <div class="kategori">
                                 <label for="kategori">Category:</label>
-                                <input type="text" name="kategori" value="" class="form-control">
+                                <input type="text" name="kategori" value="{{ old('kategori') }}" class="form-control">
                             </div>
                             <div class="nama">
                                 <label for="nama">Name:</label>
-                                <input type="text" name="nama" value="" class="form-control">
+                                <input type="text" name="nama" value="{{ old('nama') }}" class="form-control">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="desc">
                                 <label for="desc">Description:</label>
-                                <textarea name="desc" class="form-control" cols="92" rows="4"></textarea>
+                                <textarea name="desc" class="form-control" cols="92" rows="4">{{ old('desc') }}</textarea>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="date">
                                 <label for="date">Date:</label>
-                                <input type="date" name="date" value="" class="form-control">
+                                <input type="date" name="date" value="{{ old('date') }}" class="form-control">
                             </div>
                             <div class="image">
-                                <label for="formFileSm" class="form-label">Image:</label><br>
-                                <input id="formFileSm" type="file"/>
+                                <label for="gambar" class="form-label">Image:</label><br>
+                                <input id="gambar" type="file" name="gambar" class="form-control">
                             </div>
                         </div>
 
-                        <!-- Hidden image input field -->
-
                         <button type="submit" class="btn">Create</button>
+                    </form>
                 </div>
             <!-- </div> -->
         </div>

@@ -122,8 +122,50 @@ class WarisanDataController extends Controller
         return redirect('/')->with('success', 'Item deleted successfully');
     }
 
-    public function create(){
+    /**
+     * Show the form for creating a new item.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
         return view('warisan.create');
+    }
+
+    /**
+     * Store a newly created item in the database.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'kategori' => 'required',
+            'nama' => 'required',
+            'desc' => 'required',
+            'date' => 'required|date',
+            'gambar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $warisanData = new WarisanData();
+        $warisanData->kategori = $validatedData['kategori'];
+        $warisanData->nama = $validatedData['nama'];
+        $warisanData->desc = $validatedData['desc'];
+        $warisanData->date = $validatedData['date'];
+
+        if ($request->hasFile('gambar')) {
+            $gambar = $request->file('gambar');
+            $filename = $gambar->getClientOriginalName();
+            $gambar->move(public_path('images'), $filename);
+            $warisanData->gambar = $filename;
+        }else {
+            $warisanData->gambar = 'default.jpg'; // Set default value when no image is uploaded
+        }
+
+        $warisanData->save();
+
+        return redirect('/')->with('success', 'Item created successfully');
     }
 
 }
