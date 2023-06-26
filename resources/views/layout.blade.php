@@ -96,5 +96,6 @@ $(document).ready(function () {
   });
 });
 </script>
+<script src="{{ asset('js/warisan.js') }}"></script>
 </body>
 </html>
