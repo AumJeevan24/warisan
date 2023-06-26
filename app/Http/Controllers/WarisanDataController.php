@@ -82,7 +82,7 @@ class WarisanDataController extends Controller
             'kategori' => 'required',
             'nama' => 'required',
             'desc' => 'required',
-            'date' => 'required|date',
+            'date' => 'required',
             'gambar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
