@@ -11,5 +11,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Warisan Data Routes
 Route::resource('warisan', WarisanDataController::class);
 
-// Additional routes can be added for other resources
+// Additional routes can be added for other resources here
 

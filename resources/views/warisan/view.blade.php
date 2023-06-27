@@ -6,8 +6,6 @@
             <div class="col-md-6" id="image">
                 <div class="image-container">
                     <img src="{{ $warisanData->gambar }}" alt="Item Image">
-
-
                 </div>
             </div>
             <div class="col-md-6">
@@ -29,18 +27,19 @@
                         </form>                        
                     </div>
 
+                </div>
             </div>
         </div>
     </div>
-<!-- Delete Confirmation Modal -->
-<script>
+    <!-- Delete Confirmation Modal -->
+    <script>
         function confirmDelete() {
             if (confirm("Are you sure you want to delete this item?")) {
                 return true;
             }
             return false;
         }
-    </script>    
+    </script>   
 <style>
         .card {
             margin: auto;

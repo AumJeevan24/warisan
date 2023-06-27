@@ -103,17 +103,19 @@ class WarisanDataController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function delete($id){
+    public function delete($id)
+    {
         $warisanData = WarisanData::find($id);
-
-        if(!$warisanData){
-            return response()->json(['message' => 'Item not found'], 404);
+    
+        if (!$warisanData) {
+            return redirect()->back()->with('error', 'Item not found');
         }
-
+    
         $warisanData->delete();
-        
+    
         return redirect('/')->with('success', 'Item deleted successfully');
     }
+    
 
     /**
      * Show the form for creating a new item.

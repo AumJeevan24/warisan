@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Warisan Tradisional Bumi Nusantara</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <style>
     @import url('https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i');
     
