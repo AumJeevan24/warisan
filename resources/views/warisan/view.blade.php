@@ -22,7 +22,11 @@
                    
                     <div class='align-right'>  
                         <a href="{{ route('warisan.edit', $warisanData->id) }}"><button class="btn" id="update">Update</button></a>
-                        <a href="#" class="delete" onclick="return confirmDelete('{{ route('warisan.delete', $warisanData->id) }}');"><button class="btn" id="delete">Delete</button></a>                        
+                        <form action="{{ route('warisan.delete', $warisanData->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete" onclick="return confirmDelete();">Delete</button>
+                        </form>                        
                     </div>
 
             </div>
@@ -30,9 +34,9 @@
     </div>
 <!-- Delete Confirmation Modal -->
 <script>
-        function confirmDelete(deleteUrl) {
+        function confirmDelete() {
             if (confirm("Are you sure you want to delete this item?")) {
-                window.location.href = deleteUrl;
+                return true;
             }
             return false;
         }
@@ -72,7 +76,7 @@
             align-items: center;
         }
 
-        .btn{
+        .btn {
             border-radius: 50px;
             font-size: small;
             width: 120px;
@@ -91,11 +95,17 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
         }
 
-        #delete{
+        .delete{
             background-color: #D9D9D9;
+            border-radius: 50px;
+            font-size: small;
+            width: 120px;
+            margin: 0 5px;
+            padding: 7px 0;
+            border: none;
         }
 
-        #delete:hover{
+        .delete:hover{
             background-color: #A6A6A6;
         }
 
