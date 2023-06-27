@@ -13,7 +13,7 @@
                     <h3>Update Form</h3>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('warisan.update', $warisanData->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('warisan.update', $warisanData->id) }}" method="POST">
                         @csrf
                         @method('PUT')
 

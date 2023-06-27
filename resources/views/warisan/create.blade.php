@@ -3,60 +3,50 @@
 @section('content')
     <div class="card">
         <div class="row">
-            <!-- <div class="col-md-6">
-                <div class="image-container">
-                    <img src="" alt="Item Image">
+            <div class="card-body">
+                <div class="title">Create A New Item</div>
+                <div class="detail">Please provide the required details for the new item to ensure accurate documentation and representation. Thank you for your cooperation.</div>
+                @if(session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
                 </div>
-            </div> -->
-            <!-- <div class="col-md-8"> -->
-                <!-- <div class="card-header">
-                    <h3>Update Form</h3>
-                </div> -->
-                <div class="card-body">
-                    <div class="title">Create A New Item</div>
-                    <div class="detail">Please provide the required details for the new item to ensure accurate documentation and representation. Thank you for your cooperation.</div>
-                    @if(session('success'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('success') }}
+                @endif
+                <form action="{{ route('warisan.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                        <div class="kategori">
+                            <label for="kategori">Category:</label>
+                            <select name="kategori" class="form-control">
+                                <option value="weapons and arms">weapons and arms</option>
+                                <option value="household items">household items</option>
+                                <option value="textiles">textiles</option>
+                                <option value="carving and woodworks">carving and woodworks</option>
+                            </select>
+                        </div>
+                        <div class="nama">
+                            <label for="nama">Name:</label>
+                            <input type="text" name="nama" class="form-control">
+                        </div>
                     </div>
-                    @endif
-                    <form action="{{ route('warisan.store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="form-group">
-                            <div class="kategori">
-                                <label for="kategori">Category:</label>
-                                <input type="text" name="kategori" value="" class="form-control">
-                            </div>
-                            <div class="nama">
-                                <label for="nama">Name:</label>
-                                <input type="text" name="nama" value="" class="form-control">
-                            </div>
+                    <div class="form-group">
+                        <div class="desc">
+                            <label for="desc">Description:</label>
+                            <textarea name="desc" class="form-control" cols="92" rows="4"></textarea>
                         </div>
-
-                        <div class="form-group">
-                            <div class="desc">
-                                <label for="desc">Description:</label>
-                                <textarea name="desc" class="form-control" cols="92" rows="4"></textarea>
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="date">
+                            <label for="date">Date:</label>
+                            <input type="text" name="date" class="form-control">
                         </div>
-
-                        <div class="form-group">
-                            <div class="date">
-                                <label for="date">Date:</label>
-                                <input type="text" name="date" value="" class="form-control">
-                            </div>
-                            <div class="image">
-                                <label for="imageLink" class="form-label">Image Link:</label><br>
-                                <input id="imageLink" type="text" name="image_link" value="" class="form-control">
-                            </div>
+                        <div class="image">
+                            <label for="gambar">Image:</label>
+                            <input type="url" name="gambar" class="form-control-file">
                         </div>
-
-                        <!-- Hidden image input field -->
-
-                        <button type="submit" class="btn">Create</button>
-                    </form>
-                </div>
-            <!-- </div> -->
+                    </div>
+                    <button type="submit" class="btn">Create</button>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -80,12 +70,7 @@
             padding: 20px 40px;
         }
 
-        input[type="text"]{
-            border: none;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        }
-
-        input[type="date"]{
+        input[type="text"], input[type="url"] {
             border: none;
             box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
         }
@@ -127,10 +112,6 @@
 
         .image{
             margin-left: 50px;
-        }
-
-        #imageLink{
-            margin: 5px 0;
         }
 
         .btn{

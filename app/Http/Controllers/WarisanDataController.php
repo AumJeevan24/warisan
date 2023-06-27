@@ -73,35 +73,28 @@ class WarisanDataController extends Controller
     public function update(Request $request, $id)
     {
         $warisanData = WarisanData::find($id);
-
+    
         if (!$warisanData) {
             return response()->json(['message' => 'Item not found'], 404);
         }
-
+    
         $validatedData = $request->validate([
             'kategori' => 'required',
             'nama' => 'required',
             'desc' => 'required',
             'date' => 'required',
-            'gambar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-
+    
         $warisanData->kategori = $validatedData['kategori'];
         $warisanData->nama = $validatedData['nama'];
         $warisanData->desc = $validatedData['desc'];
         $warisanData->date = $validatedData['date'];
-
-        if ($request->hasFile('gambar')) {
-            $gambar = $request->file('gambar');
-            $filename = $gambar->getClientOriginalName();
-            $gambar->move(public_path('images'), $filename);
-            $warisanData->gambar = $filename;
-        }
-
+    
         $warisanData->save();
-
+    
         return redirect('/')->with('success', 'Item updated successfully');
     }
+    
 
     /**
      * Delete the specified item from the database.
@@ -127,7 +120,8 @@ class WarisanDataController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(){
+    public function create()
+    {
         return view('warisan.create');
     }
 
@@ -144,27 +138,21 @@ class WarisanDataController extends Controller
             'nama' => 'required',
             'desc' => 'required',
             'date' => 'required|date',
-            'gambar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'gambar' => 'required|url', // Update validation rule to expect a URL instead of an image file
         ]);
-
+    
         $warisanData = new WarisanData();
         $warisanData->kategori = $validatedData['kategori'];
         $warisanData->nama = $validatedData['nama'];
         $warisanData->desc = $validatedData['desc'];
         $warisanData->date = $validatedData['date'];
-
-        if ($request->hasFile('gambar')) {
-            $gambar = $request->file('gambar');
-            $filename = $gambar->getClientOriginalName();
-            $gambar->move(public_path('images'), $filename);
-            $warisanData->gambar = $filename;
-        }else {
-            $warisanData->gambar = 'default.jpg'; // Set default value when no image is uploaded
-        }
-
+        $warisanData->gambar = $validatedData['gambar']; // Store the image address directly
+    
         $warisanData->save();
-
+    
         return redirect('/')->with('success', 'Item created successfully');
     }
+    
+    
 
 }

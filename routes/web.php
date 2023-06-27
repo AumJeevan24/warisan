@@ -38,4 +38,5 @@ Route::get('/{id}/delete', [WarisanDataController::class, 'delete'])->name('wari
 // Route to create item
 Route::get('/create', [WarisanDataController::class, 'create'])->name('warisan.create');
 
-Route::post('/warisan', [WarisanDataController::class, 'store'])->name('warisan.store'); // Store the new item
+// Store the new item
+Route::post('/warisan', [WarisanDataController::class, 'store'])->name('warisan.store'); 
