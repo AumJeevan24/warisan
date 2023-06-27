@@ -11,8 +11,14 @@
                         <div class="form-group">
                             <div class="kategori">
                                 <label for="kategori">Category:</label>
-                                <input type="text" name="kategori" value="" class="form-control">
+                                <select name="kategori" class="form-control">
+                                    <option value="household items">household Items</option>
+                                    <option value="weapons and arms">heapons and arms</option>
+                                    <option value="textiles">textiles</option>
+                                    <option value="carving and woodworks">carving and woodworks</option>
+                                </select>
                             </div>
+                            
                             <div class="nama">
                                 <label for="nama">Name:</label>
                                 <input type="text" name="nama" value="" class="form-control">
