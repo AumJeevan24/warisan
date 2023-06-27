@@ -19,7 +19,7 @@ class WarisanData extends Migration
             $table->string('nama');
             $table->text('desc');
             $table->string('date');
-            $table->string('gambar');
+            $table->text('gambar');
             $table->timestamps();
         });
     }

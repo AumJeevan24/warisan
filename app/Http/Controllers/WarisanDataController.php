@@ -147,7 +147,7 @@ class WarisanDataController extends Controller
         $warisanData->desc = $validatedData['desc'];
         $warisanData->date = $validatedData['date'];
         $warisanData->gambar = $validatedData['gambar']; // Store the image address directly
-    
+        
         $warisanData->save();
     
         return redirect('/')->with('success', 'Item created successfully');

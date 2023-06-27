@@ -32,8 +32,8 @@
                                 <input type="date" name="date" value="" class="form-control">
                             </div>
                             <div class="image">
-                                <label for="gambar" class="form-label">Image URL:</label><br>
-                                <input id="gambar" type="text" name="gambar" value="" class="form-control">
+                                <label for="formFileSm" class="form-label">Image:</label><br>
+                                <input id="formFileSm" type="file"/>
                             </div>
                         </div>
 
