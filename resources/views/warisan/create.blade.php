@@ -13,7 +13,7 @@
                                 <label for="kategori">Category:</label>
                                 <select name="kategori" class="form-control">
                                     <option value="household items">household Items</option>
-                                    <option value="weapons and arms">heapons and arms</option>
+                                    <option value="weapons and arms">weapons and arms</option>
                                     <option value="textiles">textiles</option>
                                     <option value="carving and woodworks">carving and woodworks</option>
                                 </select>
